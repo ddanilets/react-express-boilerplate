@@ -1,2 +1,5 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-export default ()=>console.log(1);
+
+ReactDOM.render(<div>asdf</div>, document.getElementById('app'));

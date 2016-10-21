@@ -11,16 +11,17 @@ const webpackConfig = {
     './src/index.js',
   ],
   output: {
-    path: path.resolve('./build/js'),
-    publicPath: '/public/js/',
+    path: __dirname + "/build/js",
+    publicPath: '/public/js',
     filename: 'main.js',
   },
   module: {
     loaders: [
       {
-        test: /\.(scss|js|jsx)$/,
+        test: /\.(|js|jsx)$/,
         exclude: /node_modules/,
         loaders: [
+          require.resolve('react-hot-loader/webpack'),
           require.resolve('babel-loader'),
         ],
       },
@@ -50,7 +51,7 @@ const webpackConfig = {
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: 'development',
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
   ],

@@ -1,11 +1,11 @@
-
 import express from 'express';
+import path from 'path';
 
 const server = express();
 
 server.get('/', (req, res) => {
 
-  res.send(`${__dirname}/templates/index.html`)
+  res.sendFile((path.join(__dirname+'/templates/index.html')))
 });
 
 
