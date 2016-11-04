@@ -6,13 +6,13 @@ const webpackConfig = {
     extensions: ['', '.js', '.jsx'],
   },
   entry: [
-    'webpack-dev-server/client?http://localhost:8000',
+    'webpack-dev-server/client?http://0.0.0.0:8000',
     'webpack/hot/only-dev-server',
     './src/index.js',
   ],
   output: {
     path: __dirname + "/build/js",
-    publicPath: '/public/js',
+    publicPath: '/build/js',
     filename: 'main.js',
   },
   module: {
@@ -21,7 +21,7 @@ const webpackConfig = {
         test: /\.(|js|jsx)$/,
         exclude: /node_modules/,
         loaders: [
-          require.resolve('react-hot-loader/webpack'),
+          require.resolve('react-hot-loader'),
           require.resolve('babel-loader'),
         ],
       },

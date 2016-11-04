@@ -7,9 +7,8 @@ const webpackConfig = {
     extensions: ['', '.js'],
   },
   entry: {
-    bundle: [
-      'babel-polyfill',
-      './client.js',
+    app: [
+      './src/index.js',
     ],
     vendor: [
       'react',
