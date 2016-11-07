@@ -4,7 +4,9 @@
   "description": "a very flexible boilerplate with react, redux, express, sass, eslint, stylelint and mocha",
   "main": "index.js",
   "scripts": {
-    "dev": "PORT=8001 node entry.js & NODE_ENV=development node webpack-dev-server.js",
+    "dev": "PORT=8001 NODE_ENV='development' node entry.js & NODE_ENV='development' node webpack-dev-server.js",
+    "build": "webpack --config webpack-production.config.js",
+    "start": "NODE_ENV='production' node entry.js",
     "lint": "eslint ./ --ext .js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

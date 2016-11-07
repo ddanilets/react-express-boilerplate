@@ -2,6 +2,19 @@ import React from 'react';
 import serialize from 'serialize-javascript';
 import ReactDOM from 'react-dom/server';
 
+const isLocal = process.env.NODE_ENV === 'development';
+
+function renderJsFiles() {
+  const res = [];
+  if (isLocal) {
+    res.push('../build/js/main.js');
+  } else {
+    res.push('../build/js/vendor.bundle.js');
+    res.push('../build/js/main.min.js');
+  }
+  return res;
+}
+
 const Html = (props) => {
   const content = props.component ? ReactDOM.renderToString(props.component) : '';
   const state = props.store.getState();
@@ -10,7 +23,9 @@ const Html = (props) => {
     <body>
       <div dangerouslySetInnerHTML={{ __html: content }} id="app" />
       <script dangerouslySetInnerHTML={{ __html: `window.App=${serialize(state)};` }} />
-      <script src="../build/js/main.js"></script>
+      {renderJsFiles().map((file, key) => {
+        return <script key={key} type="text/javascript" src={file} />;
+      })}
     </body>
   </html>);
 };
