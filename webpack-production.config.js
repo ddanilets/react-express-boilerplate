@@ -8,7 +8,7 @@ const webpackConfig = {
   },
   entry: {
     app: [
-      './src/index.js',
+      './client.js',
     ],
     vendor: [
       'react',

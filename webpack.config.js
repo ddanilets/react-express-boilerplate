@@ -1,5 +1,5 @@
+/* eslint-disable prefer-template*/
 const webpack = require('webpack');
-const path = require('path');
 
 const webpackConfig = {
   resolve: {
@@ -8,10 +8,10 @@ const webpackConfig = {
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:8000',
     'webpack/hot/only-dev-server',
-    './src/index.js',
+    './client.js',
   ],
   output: {
-    path: __dirname + "/build/js",
+    path: __dirname + '/build/js',
     publicPath: '/build/js',
     filename: 'main.js',
   },

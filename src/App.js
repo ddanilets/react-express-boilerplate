@@ -1,16 +1,11 @@
 import React from 'react';
-import S from './s';
 
-class App extends React.Component {
-  constructor() {
-    super()
-  }
+const App = (props) => {
+  return <div>{props.children}</div>;
+};
 
-  render() {
-    return <div>
-      <S/>
-    </div>
-  }
-}
+App.propTypes = {
+  children: React.PropTypes.object,
+};
 
-export default App
+export default App;
